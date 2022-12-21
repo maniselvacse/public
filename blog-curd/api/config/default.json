@@ -1,0 +1,6 @@
+{
+    "mongoDB": {
+        "url": "mongodb://localhost:27017/blog",
+        "log": "mongodb://localhost:27017/logs"
+    }
+}

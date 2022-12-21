@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "8bb3d7b2-db6e-4a64-af0a-fa3bfafece3d",
+		"name": "BlogAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2754680"
+	},
+	"item": [
+		{
+			"name": "Blog",
+			"item": [
+				{
+					"name": "Get Blogs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/blog",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"blog"
+							],
+							"query": [
+								{
+									"key": "page[number]",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "page[size]",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "filter[title]",
+									"value": "test 1",
+									"disabled": true
+								},
+								{
+									"key": "filter[blog_description]",
+									"value": "test desc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Blog",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": {\r\n        \"type\": \"blog\",\r\n        \"attributes\": {\r\n            \"title\": \"RBAC2\",\r\n            \"blog_description\": \"ROLE BASED ACCESS CONTROL\"\r\n        }\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3001/blog",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"blog"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Blog",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userid\": 1,\r\n    \"username\": \"mani\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3001/blog/63998c4c176e0f231aea1cd6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"blog",
+								"63998c4c176e0f231aea1cd6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Blog",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": {\r\n        \"type\": \"blog\",\r\n        \"attributes\": {\r\n            \"title\": \"RBAC-UPDATE\",\r\n            \"blog_description\": \"ROLE BASED ACCESS CONTROL\"\r\n        }\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3001/blog/63998c26176e0f231aea1cd4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"blog",
+								"63998c26176e0f231aea1cd4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Domain Main Path",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Not Found",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"test"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

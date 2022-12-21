@@ -1,0 +1,26 @@
+{
+  "name": "blog-crud-api",
+  "version": "1.0.0",
+  "description": "blog crud API's",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "blog-crud"
+  ],
+  "author": "manikandan <contactmanikandanselvacse@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@joi/date": "^2.1.0",
+    "config": "^3.3.8",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "joi": "^17.7.0",
+    "mongoose": "^6.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
