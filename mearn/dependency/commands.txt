@@ -1,0 +1,28 @@
+#Create and Run Project
+npx create-react-app <Project-Name> => Create New Project
+npm start => Start Project 
+
+#Build
+npm run build => Create Final Build
+npm install -g serve => Install Serve Globally
+serve -s build => Serve Build in Live
+
+#Extension Find and Replace
+for file in *.php; do mv "$file" "${file%.php}.html"; done
+
+#Install package.json required things
+npm install
+
+#Packages Installed
+npm install react-router-dom => Install React Router Dom 
+npm install --save react-helmet => Install Helmet Package
+
+#Audit NPM Issues
+npm audit
+npm audit fix --force
+
+#Warning Fix
+npm c delete init-author-name=<Name>
+npm c delete init-author-email=<Email>
+npm c delete init.author.name
+npm c delete init.author.email

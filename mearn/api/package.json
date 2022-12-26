@@ -1,0 +1,28 @@
+{
+  "name": "mearn-stack-project-api",
+  "version": "0.0.1",
+  "description": "Here have list of API's",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "manikandan <contactmanikandanselvacse@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@joi/date": "^2.1.0",
+    "config": "^3.3.8",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "joi": "^17.6.3",
+    "mongoose": "^6.6.5",
+    "multer": "^1.4.5-lts.1",
+    "uuid": "^9.0.0",
+    "winston": "^3.8.2",
+    "winston-mongodb": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

@@ -1,0 +1,118 @@
+<!-- BEGIN: SideNav-->
+<app-left-side-nav></app-left-side-nav>
+<!-- END: SideNav-->
+
+<!-- BEGIN: Page Main-->
+<script>alert('html');</script>
+<div id="main">
+    <div class="row">
+        <div class="pt-3 pb-1" id="breadcrumbs-wrapper">
+            <!-- Search for small screen-->
+            <div class="container">
+                <div class="row">
+                    <div class="col s12 m6 l6">
+                        <h5 class="breadcrumbs-title mt-0 mb-0"><span>{{title}}</span></h5>
+                    </div>
+                    <div class="col s12 m6 l6 right-align-md">
+                        <ol class="breadcrumbs mb-0">
+                            <li class="breadcrumb-item"><a href="index-2.html">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active">{{title}}
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12">
+            <div class="container">
+                <div class="section section-data-tables">
+                    <div class="row">
+                        <div class="col s12 m12 l12 right-align">
+                            <a [routerLink]="['/profile-insert']" routerLinkActive="['active']"
+                                #userProfiles="routerLinkActive" class="btn mb-1 waves-effect waves-light mr-1">
+                                Add Profile
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Page Length Options -->
+                    <div class="row">
+                        <div class="col s12 m12 l12" *ngIf="deletedSuccess">
+                            <div class="card-alert card red">
+                                <div class="card-content white-text">
+                                    <p>{{deletedSuccess}}</p>
+                                </div>
+                                <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col s12">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <table id="page-length-option" class="display">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Email</th>
+                                                        <th>DOB</th>
+                                                        <th>Created</th>
+                                                        <th>Updated</th>
+                                                        <th>Option</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let profile of profiles$">
+                                                        <td ng->{{profile.name}}</td>
+                                                        <td>{{profile.email}}</td>
+                                                        <td>{{profile.dob}}</td>
+                                                        <td>{{profile.createdAt}}</td>
+                                                        <td>{{profile.updatedAt}}</td>
+                                                        <td>
+                                                            <a [routerLink]="['/profile-update/', profile._id]"
+                                                                [state]={profile}
+                                                                class="btn-floating mb-1 waves-effect waves-light mr-5">
+                                                                <i class="material-icons">edit</i>
+                                                            </a>
+                                                            <a (click)="profileDelete(profile._id)"
+                                                                class="btn-floating mb-1 waves-effect waves-light ">
+                                                                <i class="material-icons">clear</i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Email</th>
+                                                        <th>DOB</th>
+                                                        <th>Created</th>
+                                                        <th>Updated</th>
+                                                        <th>Option</th>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- START RIGHT SIDEBAR NAV -->
+                <app-right-side-nav></app-right-side-nav>
+                <!-- END RIGHT SIDEBAR NAV -->
+                <app-right-side-bottom-floating-nav></app-right-side-bottom-floating-nav>
+            </div>
+            <div class="content-overlay"></div>
+        </div>
+    </div>
+</div>
+<!-- END: Page Main-->
+
+<!-- Theme Customizer -->
+<app-theme-customizer></app-theme-customizer>
+<!--/ Theme Customizer -->

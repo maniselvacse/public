@@ -1,0 +1,27 @@
+#Check and Install mongoose
+npm list mongoose
+npm list -g  mongoose
+sudo npm install -g mongoose
+
+Config mongoose Cli - Add below mentioned path to system variables.
+C:\Program Files\MongoDB\Server\6.0\bin
+C:\mongosh-1.6.0\bin
+Reference: https://www.youtube.com/watch?v=oC6sKlhz0OE
+
+C:\Users\Manikandan>mongod --version
+C:\Users\Manikandan>mongod
+{"error":"NonExistentPath: Data directory C:\\data\\db\\ not found. 
+Create the missing directory or 
+specify another path using 
+(1) the --dbpath command line option, or 
+(2) by adding the 'storage.dbPath' option in the configuration file."}}
+
+C:\>mkdir data
+C:\data>mkdir db
+
+In Service Cross check mongodb server start type is automatic
+
+mongosh => Run from any where start mongoose
+
+use mearn => show dbs
+db.profiles.insertOne( { name: "manikandan", email: "conatctmanikandanselvacse@gmail.com" } )

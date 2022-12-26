@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "3b2218bf-3834-4fd0-b3be-4886a58c934d",
+		"name": "Mearn API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "Get Profiles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/profile?filter[_id]=635923460f8887bb74bba149",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"profile"
+							],
+							"query": [
+								{
+									"key": "page[number]",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "page[size]",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "filter[name]",
+									"value": "naveen",
+									"disabled": true
+								},
+								{
+									"key": "filter[about_you]",
+									"value": "intermediate",
+									"disabled": true
+								},
+								{
+									"key": "filter[email]",
+									"value": "selva",
+									"disabled": true
+								},
+								{
+									"key": "filter[_id]",
+									"value": "635923460f8887bb74bba149"
+								},
+								{
+									"key": "filter[skills]",
+									"value": "PHP",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Profile",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": {\r\n        \"type\": \"profile\",\r\n        \"attributes\": {\r\n            \"name\": \"Manikandan Selva\",\r\n            \"my_self\": \"I love to work in User Experience & User Interface designing. Because I love to solve the design problem and find easy and better solutions to solve it. I always try my best to make good user interface with the best user experience.\",\r\n            \"about_me\": \"I'm a Passionate designer & developer who loves simplicity in things and crafts beautiful user interfaces with love.\",\r\n            \"about_my_profile\": \"Accomplished web designer & front-end developer with extensive experience building WordPress driven websites, HTML5, CSS3 and various web scripting technologies, web standards and project management. Provide a diverse range of services including custom theme/application/plugin development, SEO/SEM, and branding to an array of clients from a variety of industries. Enthusiastic web professional motivated by challenging projects and deadlines.\",\r\n            \"email\": \"manikandan@gmail.com\",\r\n            \"dob\": \"1995-12-12\",\r\n            \"skills\": \"Sketch, Adobe CC, PHP, HTML, CSS, Javascript, PHP, Sass, Angular, jQuery, Git, Gulp, Branding, UI/UX, Graphic Design, Kibana, AWS, React, Angular\",\r\n            \"hobbies\": \"Coding, Research, Photography, Travelling, Music, Thinking\",\r\n            \"services\": [\r\n                {\r\n                    \"name\": \"Web Development\",\r\n                    \"description\": \"Web development is the work involved in developing a website for the Internet or an intranet.\"\r\n                },\r\n                {\r\n                    \"name\": \"Web design\",\r\n                    \"description\": \"Web design encompasses many different skills and disciplines in the production and maintenance of websites.\"\r\n                },\r\n                {\r\n                    \"name\": \"App Development\",\r\n                    \"description\": \"Mobile app development is the act or process by which a mobile app is developed for mobile devices..\"\r\n                },\r\n                {\r\n                    \"name\": \"Photoshop\",\r\n                    \"description\": \"Adobe Photoshop is a raster graphics editor developed and published by Adobe Inc. for Windows and macOS.\"\r\n                },\r\n                {\r\n                    \"name\": \"Marketing Business\",\r\n                    \"description\": \"Marketing is the process of exploring, creating, and delivering value to meet the needs of a target market.\"\r\n                },\r\n                {\r\n                    \"name\": \"SEO\",\r\n                    \"description\": \"Search engine optimization is the process of improving the quality and quantity of website traffic to a website.\"\r\n                }\r\n            ],\r\n            \"experience\": [\r\n                {\r\n                    \"company_name\": \"Smak Software Solution\",\r\n                    \"designation\": \"Junior Software Engineer\",\r\n                    \"location\": \"Adambakkam\",\r\n                    \"start_date\": \"2016-02-01\",\r\n                    \"end_date\": \"2017-02-01\"\r\n                },\r\n                {\r\n                    \"company_name\": \"Cashkaro\",\r\n                    \"designation\": \"Senior Software Engineer\",\r\n                    \"location\": \"Guindy\",\r\n                    \"start_date\": \"2017-02-01\",\r\n                    \"end_date\": \"Present\"\r\n                }\r\n            ],\r\n            \"education\": [\r\n                {\r\n                    \"institution_name\": \"Little Flower Higher Secondary School\",\r\n                    \"qualification\": \"SSLC\",\r\n                    \"location\": \"Kumbaonam\",\r\n                    \"start_date\": \"2001-02-01\",\r\n                    \"end_date\": \"2010-02-01\"\r\n                },\r\n                {\r\n                    \"institution_name\": \"Government Boys Higher Secondary School\",\r\n                    \"qualification\": \"HSLC\",\r\n                    \"location\": \"Valangaiman\",\r\n                    \"start_date\": \"2010-02-01\",\r\n                    \"end_date\": \"2012-02-01\"\r\n                },\r\n                {\r\n                    \"institution_name\": \"As-Salam College of Engineering and Technology\",\r\n                    \"qualification\": \"B.E.CSE\",\r\n                    \"location\": \"Aduthurai\",\r\n                    \"start_date\": \"2012-02-01\",\r\n                    \"end_date\": \"2016-02-01\"\r\n                }\r\n            ],\r\n            \"social_media\": [\r\n                {\r\n                    \"name\": \"Web\",\r\n                    \"url\": \"https://manikandanselvacse.business.site\"\r\n                },\r\n                {\r\n                    \"name\": \"Mail\",\r\n                    \"url\": \"contactmanikandanselvacse@gmail.com\"\r\n                },\r\n                {\r\n                    \"name\": \"Linkedin\",\r\n                    \"url\": \"https://linkedin.com/in/manikandanselvacse\"\r\n                },\r\n                {\r\n                    \"name\": \"Instagram\",\r\n                    \"url\": \"https://instagram.com/manikandanselvacse\"\r\n                },\r\n                {\r\n                    \"name\": \"Twitter\",\r\n                    \"url\": \"https://www.twitter.com/maniselvacse\"\r\n                },\r\n                {\r\n                    \"name\": \"Facebook\",\r\n                    \"url\": \"https://www.facebook.com/manikandanselvacse\"\r\n                }\r\n            ],\r\n            \"skills_and_percentage\": [\r\n                {\r\n                    \"name\": \"Web Design\",\r\n                    \"percentage\": \"80\"\r\n                },\r\n                {\r\n                    \"name\": \"UI Design & Developer\",\r\n                    \"percentage\": \"70\"\r\n                },\r\n                {\r\n                    \"name\": \"Javascript\",\r\n                    \"percentage\": \"85\"\r\n                },\r\n                {\r\n                    \"name\": \"Photoshop\",\r\n                    \"percentage\": \"60\"\r\n                }\r\n            ]\r\n        }\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3001/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Profile Attachments",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "home_image",
+									"description": "350X455px",
+									"type": "file",
+									"src": "/J:/DSC_0067.jpg"
+								},
+								{
+									"key": "about_image",
+									"description": "507X403px",
+									"type": "file",
+									"src": "/C:/Users/Manikandan/Pictures/about.jpg"
+								},
+								{
+									"key": "about_my_profile_image",
+									"description": "445X413",
+									"type": "file",
+									"src": "/C:/Users/Manikandan/Pictures/650f1ccf43d042be18edf5352da7edb8.jpg"
+								},
+								{
+									"key": "resume_document",
+									"type": "file",
+									"src": "/J:/ManikandanCV.docx"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/profile/attachment/635ab8a5370652aafb2da568",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"profile",
+								"attachment",
+								"635ab8a5370652aafb2da568"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Profile",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userid\": 1,\r\n    \"username\": \"mani\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3001/profile/6352cc81378bc2d43a509354",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"profile",
+								"6352cc81378bc2d43a509354"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": {\r\n        \"type\": \"profile\",\r\n        \"attributes\": {\r\n            \"name\": \"Manikandan Selva\",\r\n            \"my_self\": \"I love to work in User Experience & User Interface designing. Because I love to solve the design problem and find easy and better solutions to solve it. I always try my best to make good user interface with the best user experience.\",\r\n            \"about_me\": \"I'm a Passionate designer & developer who loves simplicity in things and crafts beautiful user interfaces with love.\",\r\n            \"about_my_profile\": \"Accomplished web designer & front-end developer with extensive experience building WordPress driven websites, HTML5, CSS3 and various web scripting technologies, web standards and project management. Provide a diverse range of services including custom theme/application/plugin development, SEO/SEM, and branding to an array of clients from a variety of industries. Enthusiastic web professional motivated by challenging projects and deadlines.\",\r\n            \"email\": \"manikandan@gmail.com\",\r\n            \"dob\": \"1995-12-12\",\r\n            \"skills\": \"Sketch, Adobe CC, PHP, HTML, CSS, Javascript, PHP, Sass, Angular, jQuery, Git, Gulp, Branding, UI/UX, Graphic Design, Kibana, AWS, React, Angular\",\r\n            \"hobbies\": \"Coding, Research, Photography, Travelling, Music, Thinking\",\r\n            \"services\": [\r\n                {\r\n                    \"name\": \"Web Development\",\r\n                    \"description\": \"Web development is the work involved in developing a website for the Internet or an intranet.\"\r\n                },\r\n                {\r\n                    \"name\": \"Web design\",\r\n                    \"description\": \"Web design encompasses many different skills and disciplines in the production and maintenance of websites.\"\r\n                },\r\n                {\r\n                    \"name\": \"App Development\",\r\n                    \"description\": \"Mobile app development is the act or process by which a mobile app is developed for mobile devices..\"\r\n                },\r\n                {\r\n                    \"name\": \"Photoshop\",\r\n                    \"description\": \"Adobe Photoshop is a raster graphics editor developed and published by Adobe Inc. for Windows and macOS.\"\r\n                },\r\n                {\r\n                    \"name\": \"Marketing Business\",\r\n                    \"description\": \"Marketing is the process of exploring, creating, and delivering value to meet the needs of a target market.\"\r\n                },\r\n                {\r\n                    \"name\": \"SEO\",\r\n                    \"description\": \"Search engine optimization is the process of improving the quality and quantity of website traffic to a website.\"\r\n                }\r\n            ],\r\n            \"experience\": [\r\n                {\r\n                    \"company_name\": \"Smak Software Solution\",\r\n                    \"designation\": \"Junior Software Engineer\",\r\n                    \"location\": \"Adambakkam\",\r\n                    \"start_date\": \"2016-02-01\",\r\n                    \"end_date\": \"2017-02-01\"\r\n                },\r\n                {\r\n                    \"company_name\": \"Cashkaro\",\r\n                    \"designation\": \"Senior Software Engineer\",\r\n                    \"location\": \"Guindy\",\r\n                    \"start_date\": \"2017-02-01\",\r\n                    \"end_date\": \"Present\"\r\n                }\r\n            ],\r\n            \"education\": [\r\n                {\r\n                    \"institution_name\": \"Little Flower Higher Secondary School\",\r\n                    \"qualification\": \"SSLC\",\r\n                    \"location\": \"Kumbaonam\",\r\n                    \"start_date\": \"2001-02-01\",\r\n                    \"end_date\": \"2010-02-01\"\r\n                },\r\n                {\r\n                    \"institution_name\": \"Government Boys Higher Secondary School\",\r\n                    \"qualification\": \"HSLC\",\r\n                    \"location\": \"Valangaiman\",\r\n                    \"start_date\": \"2010-02-01\",\r\n                    \"end_date\": \"2012-02-01\"\r\n                },\r\n                {\r\n                    \"institution_name\": \"As-Salam College of Engineering and Technology\",\r\n                    \"qualification\": \"B.E.CSE\",\r\n                    \"location\": \"Aduthurai\",\r\n                    \"start_date\": \"2012-02-01\",\r\n                    \"end_date\": \"2016-02-01\"\r\n                }\r\n            ],\r\n            \"social_media\": [\r\n                {\r\n                    \"name\": \"Web\",\r\n                    \"url\": \"https://manikandanselvacse.business.site\"\r\n                },\r\n                {\r\n                    \"name\": \"Mail\",\r\n                    \"url\": \"contactmanikandanselvacse@gmail.com\"\r\n                },\r\n                {\r\n                    \"name\": \"Linkedin\",\r\n                    \"url\": \"https://linkedin.com/in/manikandanselvacse\"\r\n                },\r\n                {\r\n                    \"name\": \"Instagram\",\r\n                    \"url\": \"https://instagram.com/manikandanselvacse\"\r\n                },\r\n                {\r\n                    \"name\": \"Twitter\",\r\n                    \"url\": \"https://www.twitter.com/maniselvacse\"\r\n                },\r\n                {\r\n                    \"name\": \"Facebook\",\r\n                    \"url\": \"https://www.facebook.com/manikandanselvacse\"\r\n                }\r\n            ],\r\n            \"skills_and_percentage\": [\r\n                {\r\n                    \"name\": \"Web Design\",\r\n                    \"percentage\": \"80\"\r\n                },\r\n                {\r\n                    \"name\": \"UI Design & Developer\",\r\n                    \"percentage\": \"70\"\r\n                },\r\n                {\r\n                    \"name\": \"Javascript\",\r\n                    \"percentage\": \"85\"\r\n                },\r\n                {\r\n                    \"name\": \"Photoshop\",\r\n                    \"percentage\": \"60\"\r\n                }\r\n            ]\r\n        }\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3001/profile/635ab8a5370652aafb2da568",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"profile",
+								"635ab8a5370652aafb2da568"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Domain Main Path",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Not Found",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"test"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

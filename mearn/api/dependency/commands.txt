@@ -1,0 +1,13 @@
+export NODE_ENV=development
+npm starts
+
+npm config list
+npm config set --init-author-name "Manikandan <contactmanikandanselvacse@gmail.com>"
+npm init
+
+npm install express --save
+npm install --save-dev nodemon
+npm install uuid
+npm install mongodb
+npm install mongoose
+npm install config

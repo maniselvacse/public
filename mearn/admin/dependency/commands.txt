@@ -1,0 +1,14 @@
+npm install -g @angular/cli
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+ng new admin
+
+cd admin
+ng serve --open
+
+ng generate component home
+ng generate component layouts/header
+
+ng generate module app.routing.module --routing
+
+ng generate services .\core\services\profile

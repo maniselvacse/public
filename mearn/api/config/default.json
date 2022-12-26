@@ -1,0 +1,7 @@
+{
+    "uploadDirectory": "http://dev.localhost.com/mearn/public/assets/uploads/",
+    "mongoDB": {
+        "url": "mongodb://localhost:27017/mearn",
+        "log": "mongodb://localhost:27017/logs"
+    }
+}

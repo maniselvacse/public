@@ -1,0 +1,367 @@
+<app-left-side-nav></app-left-side-nav>
+
+<!-- BEGIN: Page Main-->
+<div id="main">
+  <div class="row">
+    <div class="pt-3 pb-1" id="breadcrumbs-wrapper">
+      <!-- Search for small screen-->
+      <div class="container">
+        <div class="row">
+          <div class="col s12 m6 l6">
+            <h5 class="breadcrumbs-title mt-0 mb-0">
+              <span>{{title}}</span>
+            </h5>
+          </div>
+          <div class="col s12 m6 l6 right-align-md">
+            <ol class="breadcrumbs mb-0">
+              <li class="breadcrumb-item">
+                <a href="index-2.html">Home</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a [routerLink]="['/profiles/']">Profile</a>
+              </li>
+              <li class="breadcrumb-item active">{{title}}</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col s12">
+      <div class="container">
+        <!-- Input Fields -->
+        <div class="row">
+          <div class="col s12 m12 l12" *ngIf="updateSuccess">
+            <div class="card-alert card green">
+              <div class="card-content white-text">
+                <p>{{updateSuccess}}</p>
+              </div>
+              <button type="button" class="close white-text" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+          </div>
+          <div class="col s12">
+            <form class="row" [formGroup]="profileInsertFormGroup" (ngSubmit)="profileInsertOrUpdate()">
+              <div id="input-fields" class="card card-tabs">
+                <div class="card-content">
+                  <div id="view-input-fields">
+                    <div class="row">
+                      <div class="col s12">
+                        <div class="col s12">
+                          <div class="input-field col s12">
+                            <input id="name" type="text" formControlName="name">
+                            <label for="name">Name</label>
+                          </div>
+                        </div>
+                        <div class="col s12">
+                          <div class="input-field col s12">
+                            <textarea id="my_self" class="materialize-textarea" formControlName="my_self"></textarea>
+                            <label for="my_self">My Self</label>
+                          </div>
+                        </div>
+                        <div class="col s12">
+                          <div class="input-field col s12">
+                            <textarea id="about_me" class="materialize-textarea" formControlName="about_me"></textarea>
+                            <label for="about_me">About Me</label>
+                          </div>
+                        </div>
+                        <div class="col s12">
+                          <div class="input-field col s12">
+                            <textarea id="about_my_profile" class="materialize-textarea"
+                              formControlName="about_my_profile"></textarea>
+                            <label for="about_my_profile">About My Profile</label>
+                          </div>
+                        </div>
+                        <div class="col s12">
+                          <div class="input-field col s12">
+                            <input id="email" type="email" class="validate" formControlName="email">
+                            <label for="email">Email</label>
+                          </div>
+                        </div>
+                        <div class="col s12">
+                          <div class="input-field col s12">
+                            <input type="text" id="dob" class="datepicker" formControlName="dob">
+                            <label for="dob">DOB</label>
+                          </div>
+                        </div>
+                        <div class="col s12">
+                          <div class="input-field col s12">
+                            <textarea id="skills" class="materialize-textarea" formControlName="skills"></textarea>
+                            <label for="skills">Skills</label>
+                          </div>
+                        </div>
+                        <div class="col s12">
+                          <div class="input-field col s12">
+                            <textarea id="hobbies" class="materialize-textarea" formControlName="hobbies"></textarea>
+                            <label for="hobbies">Hobbies</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="input-fields" class="card card-tabs">
+                <div class="card-content">
+                  <div id="view-input-fields" formArrayName="services">
+                    <div class="row pt-2" *ngFor="let services of profileInsertFormGroup.get('services').controls;
+                      let i = index;
+                      let even = even
+                      let last = last">
+                      <div class="col s11 pt-1" [formGroupName]="i">
+                        <div class="col s12">
+                          <div class="input-field col s12">
+                            <input id="services_name_{{ i }}" type="text" formControlName="name">
+                            <label for="services_name_{{ i }}">Service Name</label>
+                          </div>
+                        </div>
+                        <div class="col s12">
+                          <div class="input-field col s12">
+                            <textarea id="services_description_{{ i }}" class="materialize-textarea"
+                              formControlName="description"></textarea>
+                            <label for="services_description_{{ i }}">Service Description</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col s1" [ngClass]="last ? 'pt-6' : 'pt-8'">
+                        <p>
+                          <a *ngIf="profileInsertFormGroup.get('services').value.length > 1"
+                            (click)="remove('services', i)"
+                            class="mb-6 btn-floating waves-effect waves-light red accent-2">
+                            <i class="material-icons">clear</i>
+                          </a>
+                          <a *ngIf="last" (click)="add('services')"
+                            class="mb-6 btn-floating waves-effect waves-light green darken-1">
+                            <i class="material-icons">add</i>
+                          </a>
+                        </p>
+                      </div>
+                      <div class="divider"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="input-fields" class="card card-tabs">
+                <div class="card-content">
+                  <div id="view-input-fields" formArrayName="experience">
+                    <div class="row pt-2" *ngFor="let experience of profileInsertFormGroup.get('experience').controls;
+                      let i = index;
+                      let even = even
+                      let last = last">
+                      <div class="col s11 pt-1" [formGroupName]="i">
+                        <div class="col s12">
+                          <div class="input-field col s12">
+                            <input id="experience_company_name_{{ i }}" type="text" formControlName="company_name">
+                            <label for="experience_company_name_{{ i }}">Expericence Company Name</label>
+                          </div>
+                        </div>
+                        <div class="col s12">
+                          <div class="input-field col s12">
+                            <input id="experience_designation_{{ i }}" type="text" formControlName="designation">
+                            <label for="experience_designation_{{ i }}">Experience DEsignation</label>
+                          </div>
+                        </div>
+                        <div class="col s12">
+                          <div class="input-field col s12">
+                            <input id="experience_location_{{ i }}" type="text" formControlName="location">
+                            <label for="experience_location_{{ i }}">Experience Location</label>
+                          </div>
+                        </div>
+                        <div class="col s12">
+                          <div class="input-field col s12">
+                            <input type="text" id="experience_start_date_{{ i }}" class="datepicker"
+                              formControlName="start_date">
+                            <label for="experience_start_date_{{ i }}">Experience Start Date </label>
+                          </div>
+                        </div>
+                        <div class="col s12">
+                          <div class="input-field col s12">
+                            <input type="text" id="experience_end_date_{{ i }}" class="datepicker"
+                              formControlName="end_date">
+                            <label for="experience_end_date_{{ i }}">Experience End Date </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col s1 pt-20">
+                        <p>
+                          <a *ngIf="profileInsertFormGroup.get('experience').value.length > 1"
+                            (click)="remove('experience', i)"
+                            class="mb-6 btn-floating waves-effect waves-light red accent-2">
+                            <i class="material-icons">clear</i>
+                          </a>
+                          <a *ngIf="last" (click)="add('experience')"
+                            class="mb-6 btn-floating waves-effect waves-light green darken-1">
+                            <i class="material-icons">add</i>
+                          </a>
+                        </p>
+                      </div>
+                      <div class="divider"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="input-fields" class="card card-tabs">
+                <div class="card-content">
+                  <div id="view-input-fields" formArrayName="education">
+                    <div class="row pt-2" *ngFor="let education of profileInsertFormGroup.get('education').controls;
+                      let i = index;
+                      let even = even
+                      let last = last">
+                      <div class="col s11 pt-1" [formGroupName]="i">
+                        <div class="col s12">
+                          <div class="input-field col s12">
+                            <input id="education_institution_name_{{ i }}" type="text"
+                              formControlName="institution_name">
+                            <label for="education_institution_name_{{ i }}">Education Institution Name</label>
+                          </div>
+                        </div>
+                        <div class="col s12">
+                          <div class="input-field col s12">
+                            <input id="education_qualification_{{ i }}" type="text" formControlName="qualification">
+                            <label for="education_qualification_{{ i }}">Education Qualification</label>
+                          </div>
+                        </div>
+                        <div class="col s12">
+                          <div class="input-field col s12">
+                            <input id="education_location_{{ i }}" type="text" formControlName="location">
+                            <label for="education_location_{{ i }}">Education Location</label>
+                          </div>
+                        </div>
+                        <div class="col s12">
+                          <div class="input-field col s12">
+                            <input type="text" id="education_start_date_{{ i }}" class="datepicker"
+                              formControlName="start_date">
+                            <label for="education_start_date_{{ i }}">Education Start Date </label>
+                          </div>
+                        </div>
+                        <div class="col s12">
+                          <div class="input-field col s12">
+                            <input type="text" id="education_end_date_{{ i }}" class="datepicker"
+                              formControlName="end_date">
+                            <label for="education_end_date_{{ i }}">Education End Date </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col s1 pt-18">
+                        <p>
+                          <a *ngIf="profileInsertFormGroup.get('education').value.length > 1"
+                            (click)="remove('education', i)"
+                            class="mb-6 btn-floating waves-effect waves-light red accent-2">
+                            <i class="material-icons">clear</i>
+                          </a>
+                          <a *ngIf="last" (click)="add('education')"
+                            class="mb-6 btn-floating waves-effect waves-light green darken-1">
+                            <i class="material-icons">add</i>
+                          </a>
+                        </p>
+                      </div>
+                      <div class="divider"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="input-fields" class="card card-tabs">
+                <div class="card-content">
+                  <div id="view-input-fields" formArrayName="social_media">
+                    <div class="row pt-2" *ngFor="let social_media of profileInsertFormGroup.get('social_media').controls;
+                      let i = index;
+                      let even = even
+                      let last = last">
+                      <div class="col s11 pt-1" [formGroupName]="i">
+                        <div class="col s12">
+                          <div class="input-field col s12">
+                            <input type="text" id="social_media_name_{{ i }}" formControlName="name">
+                            <label for="social_media_name_{{ i }}">Social Media Name</label>
+                          </div>
+                        </div>
+                        <div class="col s12">
+                          <div class="input-field col s12">
+                            <input type="text" id="social_media_url_{{ i }}" formControlName="url">
+                            <label for="social_media_url_{{ i }}">Social Media URL</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col s1" [ngClass]="last ? 'pt-6' : 'pt-8'">
+                        <p>
+                          <a *ngIf="profileInsertFormGroup.get('social_media').value.length > 1"
+                            (click)="remove('social', i)"
+                            class="mb-6 btn-floating waves-effect waves-light red accent-2">
+                            <i class="material-icons">clear</i>
+                          </a>
+                          <a *ngIf="last" (click)="add('social')"
+                            class="mb-6 btn-floating waves-effect waves-light green darken-1">
+                            <i class="material-icons">add</i>
+                          </a>
+                        </p>
+                      </div>
+                      <div class="divider"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="input-fields" class="card card-tabs">
+                <div class="card-content">
+                  <div id="view-input-fields" formArrayName="skills_and_percentage">
+                    <div class="row pt-2" *ngFor="let skills_and_percentage of profileInsertFormGroup.get('skills_and_percentage').controls;
+                    let i = index;
+                    let last = last;
+                    let even = even">
+                      <div class="col s11 pt-1" [formGroupName]="i">
+                        <div class="col s12">
+                          <div class="input-field col s12">
+                            <input type="text" id="skills_and_percentage_name_{{ i }}" formControlName="name">
+                            <label for="skills_and_percentage_name_{{ i }}">Skill Name</label>
+                          </div>
+                        </div>
+                        <div class="col s12">
+                          <div class="input-field col s12">
+                            <input type="text" id="skills_and_percentage_percentage_{{ i }}"
+                              formControlName="percentage">
+                            <label for="skills_and_percentage_percentage_{{ i }}">Skill Percentage</label>
+                          </div>
+                        </div>
+                        <div class="input-field col s12" *ngIf="last">
+                          <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
+                            <i class="material-icons right">send</i>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="col s1" [ngClass]="last ? 'pt-6' : 'pt-8'">
+                        <p>
+                          <a *ngIf="profileInsertFormGroup.get('skills_and_percentage').value.length > 1"
+                            (click)="remove('skill', i)"
+                            class="mb-6 btn-floating waves-effect waves-light red accent-2">
+                            <i class="material-icons">clear</i>
+                          </a>
+                          <a *ngIf="last" (click)="add('skill')"
+                            class="mb-6 btn-floating waves-effect waves-light green darken-1">
+                            <i class="material-icons">add</i>
+                          </a>
+                        </p>
+                      </div>
+                      <div class="divider"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+        <app-right-side-nav></app-right-side-nav>
+        <app-right-side-bottom-floating-nav></app-right-side-bottom-floating-nav>
+      </div>
+      <div class="content-overlay"></div>
+    </div>
+  </div>
+</div>
+<!-- END: Page Main-->
+
+<!-- Theme Customizer -->
+<app-theme-customizer></app-theme-customizer>
+<!--/ Theme Customizer -->

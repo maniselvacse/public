@@ -1,0 +1,5 @@
+{
+    "MongoDB": {
+        "url": "mongodb://localhost:80567/mearn"
+    }
+}
